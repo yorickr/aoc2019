@@ -12,7 +12,11 @@ fun main() {
     val answer = readLine()?.split(" ")?.get(0)
     if (answer!! != "y") return
     for (day in days) {
-        day.runDay()
+        println("---- Day number ${day.dayNumber} ----")
+        println(day.part1AsString())
+        println(day.part2AsString())
+        println("---------")
+
     }
 
 }

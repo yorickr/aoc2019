@@ -25,6 +25,9 @@ import kotlin.math.floor
 //What is the sum of the fuel requirements for all of the modules on your spacecraft?
 
 class DayOne : Day {
+    override val dayNumber: Int
+        get() = 1
+
     override fun runDay() {
         println("Running day 1")
         val testMasses: List<Int> = listOf(12, 14, 1969, 100756)
@@ -32,13 +35,22 @@ class DayOne : Day {
             println("Fuel needed with mass ${mass}: ${calcFuel(mass)}")
         }
 
-        val inputAsMass = File("src/day1/input.txt").readLines().map { it.toInt() }
-        println("The total amount of fuel is ${calcTotalAmountOfFuel(inputAsMass)}")
-
         for (mass in testMasses) {
             println("Fuel needed when accounting for fuel mass is ${calcFuelIncludingFuel(mass)}")
         }
-        println("The total amount of fuel is ${calcTotalAmountOfFuelIncludingFuelMass(inputAsMass)}")
+
+        println(part1AsString())
+        println(part2AsString())
+    }
+
+    override fun part1AsString(): String {
+        val inputAsMass = File("src/day1/input.txt").readLines().map { it.toInt() }
+        return "The total amount of fuel is ${calcTotalAmountOfFuel(inputAsMass)}"
+    }
+
+    override fun part2AsString(): String {
+        val inputAsMass = File("src/day1/input.txt").readLines().map { it.toInt() }
+        return "The total amount of fuel accounted for fuel mass is ${calcTotalAmountOfFuelIncludingFuelMass(inputAsMass)}"
     }
 
     private fun calcTotalAmountOfFuel(totalMass: List<Int>): Long {
