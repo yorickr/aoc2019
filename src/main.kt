@@ -1,8 +1,10 @@
 import day1.DayOne
+import day2.DayTwo
 
 fun main() {
     val days: List<Day> = listOf<Day>(
-        DayOne()
+        DayOne(),
+        DayTwo()
     )
 
     // run last day only.
