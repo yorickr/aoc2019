@@ -1,10 +1,12 @@
 import day1.DayOne
 import day2.DayTwo
+import day3.DayThree
 
 fun main() {
     val days: List<Day> = listOf<Day>(
         DayOne(),
-        DayTwo()
+        DayTwo(),
+        DayThree()
     )
 
     // run last day only.
